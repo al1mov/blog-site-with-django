@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>al1mov | Blog </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="https://al1movv.vercel.app/assets/logo-6b33d374.png">
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body style="-webkit-tap-highlight-color: transparent;">
+        <section class="bg-gray-100 py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div class="lg:text-center">
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                  Bizni oxirgi postlarimizni ko'rishingiz mumkin!
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                  Bizni blog sahifamizda har doim yangi va tezkor postlar joylanadi.
+                </p>
+              </div>
+          
+              <div class="mt-10">
+                <div class="flex grid gap-10 md:grid-cols-2 xl:grid-cols-3">
+                  <!-- blog post 1 -->
+                  {% for post in post %}
+                    {% comment %} <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
+                        <div class="flex-shrink-0">
+                            <img class="h-48 w-[380px] object-cover" src="{{ post.img_url }}" alt="Blog post image">
+                        </div>
+                        <div class="flex-1 bg-white p-6 flex flex-col justify-between">
+                        <div class="flex-1">
+                            <a href="{% url 'post_detail' post.pk %}" class="block mt-2">
+                            <p class="text-xl font-semibold text-gray-900">{{ post.title }}</p>
+                            <p class="mt-3 text-base text-gray-500">{{ post.body | slice:":100" }}</p>
+                            </a>
+                        </div>
+                        <div class="mt-6 flex items-center">
+                            <div class="flex-shrink-0">
+                            <img class="h-10 w-10 rounded-full" src="https://via.placeholder.com/150.png?text=Placeholder" alt="Author image">
+                            </div>
+                            <div class="ml-3">
+                            <p class="text-sm font-medium text-gray-900">{{ post.author }}</p>
+                            <div class="flex space-x-1 text-sm text-gray-500">
+                                <time datetime="2023-06-28">{{ post.time }}</time>
+                                <span aria-hidden="true">&middot;</span>
+                            </div>
+                            </div>
+                        </div>
+                    </div> {% endcomment %}
+                    <!-- This is an example component -->
+                    <div class="max-w-lg mx-auto">
+                      <div class="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm mb-5">
+                          <a href="{% url 'post_detail' post.pk %}">
+                              <img class="rounded-t-lg w-full h-[200px] object-cover" src="{{post.img_url}}" alt="">
+                          </a>
+                          <div class="p-5">
+                              <div class="author">{{post.author}} | {{post.time}} </div>
+                              <a href="{% url 'post_detail' post.pk %}">
+                                  <h5 class="text-gray-900 font-bold text-2xl tracking-tight mb-2">{{post.title | slice:"0:50"}}</h5>
+                              </a>
+                              <p class="font-normal text-gray-700 mb-3">{{post.body | slice:":100"}}</p>
+                              <a class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center" href="{% url 'post_detail' post.pk %}">
+                                  Ko'proq o'qish
+                              </a>
+                          </div>
+                      </div>
+                    </div>
+                  {% endfor %}
+              </div>
+            </div>
+          </section>
+    </body>
+</html>
+
+
+
+

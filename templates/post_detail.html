@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{{ post.title }}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="https://al1movv.vercel.app/assets/logo-6b33d374.png">
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body>
+        
+        <!-- Container for demo purpose -->
+        <div class="container my-24 mx-auto md:px-6">
+            <!-- Section: Design Block -->
+            <section class="mb-32">
+            <img src="{{ post.img_url }}"
+                class="mb-6 w-full rounded-lg shadow-lg dark:shadow-black/20" alt="image" />
+        
+            <div class="mb-6 flex items-center">
+                <img src="data:image/png;base64,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" class="mr-2 h-8 rounded-full" alt="avatar"
+                loading="lazy" />
+                <div>
+                <span> Published <u>{{ post.time }}</u> by </span>
+                <a href="#!" class="font-medium">{{ post.author }}</a>
+                </div>
+            </div>
+        
+            <h1 class="mb-6 text-3xl font-bold">
+                {{ post.title }}
+            </h1>
+        
+            <p>
+                {{ post.body }}
+            </p>
+            <button type="button" class="py-3 mt-[30px] px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-400 text-white hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-offset-2 transition-all text-sm dark:focus:ring-gray-900 dark:focus:ring-offset-gray-800">
+                <img src="https://www.linkpicture.com/q/4829870_arrow_back_left_icon.png" width="20px" alt="icon">
+                <a href="{% url 'home' %}">
+                    <span class="text-black">Bosh sahifaga qaytish</span>
+                </a>
+              </button>
+            </section>
+            <!-- Section: Design Block -->
+        </div>
+    </body>
+</html>
